@@ -1,13 +1,11 @@
 pipeline {
-    triggers {
-        pollSCM('')
-    }
+    agent { docker { image 'ruby:3.0.3-alpine' } }
     stages {
-        stage('test') {
+        stage('build') {
             steps {
-                echo 'test'
-        	echo 'kekw'
-	    }
+                sh 'ruby --version'
+            }
         }
     }
 }
+
